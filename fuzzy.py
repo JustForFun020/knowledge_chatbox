@@ -82,6 +82,7 @@ job_prediction.input["ui_ux_knowledge"] = ui_ux_knowledge_c
 
 # Tính toán kết quả
 job_prediction.compute()
+job_prediction
 
 # In kết quả
 print("Công việc phù hợp với bạn là: ", job_prediction.output["job"])

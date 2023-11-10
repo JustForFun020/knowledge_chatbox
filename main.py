@@ -11,7 +11,9 @@ def welcome_message():
     print(
         "------------------------------ Welcome to ChatBox ------------------------------\n"
     )
+    time.sleep(1)
     print("-------> Chào bạn, tôi là ChatBox tư vấn việc làm Công nghệ thông tin\n")
+    time.sleep(1)
     print(
         "Để biết được bạn phù hợp với vị trí nào trong lĩnh vực công nghệ thông tin, hay cung cấp thông tin của bạn bằng cách trả lời các câu hỏi sau đây để tôi có thể gợi ý việc làm phù hợp nhập với bạn \n"
     )
@@ -19,7 +21,7 @@ def welcome_message():
 
 welcome_message()
 
-
+time.sleep(1)
 while True:
     # Lập trình
     system_question.first_question()
@@ -27,7 +29,6 @@ while True:
     system_question.second_question()
     # Lĩnh vực
     system_question.third_question()
-    # --> các trường đã có: Specialized Field, Code Knowledge Field, Salary Field
     if "Biết lập trình" in user_choice and "Công nghệ phần mềm" in user_choice:
         job_prediction.input["Tools Field"] = 0
         # Languages
@@ -92,6 +93,7 @@ while True:
         system_question.twenty_two_question()
         break
     elif "Biết lập trình" in user_choice and "Khoa học dữ liệu" in user_choice:
+        job_prediction.input["Office Information Field"] = 0
         # Languages
         system_question.fourth_question()
         # IDE
@@ -167,58 +169,35 @@ while True:
     else:
         print("no")
         break
-try:
-    job_prediction.compute()
-    value = job_prediction.output["Jobs Field"]
-    print("\n")
-    time.sleep(1.5)
-    print("Đây là những lựa chọn của bạn:")
-    for x in user_choice:
-        print(f"+++++++++++++ {x} \n")
 
-    time.sleep(1.5)
-    print("Hệ thống đang tính toán kết quả, bạn vui lòng chờ một vài giây......")
-    time.sleep(3)
-    if 0 <= value < 0.533:
-        print("Công việc phù hợp với bạn là: Front-End Developer")
-    elif 0.533 <= value < 1.533:
-        print("Công việc phù hợp với bạn là: Back-End Developer")
-    elif 1.533 <= value < 2.56:
-        print("Công việc phù hợp với bạn là: Android Developer")
-    elif 2.56 <= value < 3.57:
-        print("Công việc phù hợp với bạn là: iOS Developer")
-    elif 3.57 <= value < 4.61:
-        print("Công việc phù hợp với bạn là: IoT Developer")
-    elif 4.61 <= value < 5.63:
-        print("Công việc phù hợp với bạn là: DepOps Engineer")
-    elif 5.63 <= value < 6.69:
-        print("Công việc phù hợp với bạn là: Business Analyst")
-    elif 6.69 <= value < 7.76:
-        print("Công việc phù hợp với bạn là: UI/UX Designer")
-    elif 7.76 <= value < 8.85:
-        print("Công việc phù hợp với bạn là: Tester")
-    elif 8.85 <= value < 10:
-        print("Công việc phù hợp với bạn là: AI Engineer")
-    elif 10 <= value < 11.13:
-        print("Công việc phù hợp với bạn là: AI Researcher")
-    elif 11.13 <= value < 12.25:
-        print("Công việc phù hợp với bạn là: Data Analysis")
-    elif 12.25 <= value < 13.30:
-        print("Công việc phù hợp với bạn là: Database Administrator")
-    elif 13.30 <= value < 14.30:
-        print("Công việc phù hợp với bạn là: Data Engineer")
-    elif 14.30 <= value < 15.30:
-        print("Công việc phù hợp với bạn là: Data Scientist")
-    elif 15.30 <= value < 16.40:
-        print("Công việc phù hợp với bạn là: Information security analyst")
-    elif 16.40 <= value < 17.45:
-        print("Công việc phù hợp với bạn là: Network Security Specialist")
-    elif 17.45 <= value < 18.45:
-        print("Công việc phù hợp với bạn là: IT Security Engineer")
-    elif 18.45 <= value < 19.45:
-        print("Công việc phù hợp với bạn là: Game Developer")
-    elif value >= 19.45:
-        print("Công việc phù hợp với bạn là: IT - Helpdesk")
+try:
+    jobs = {
+        (0, 0.533): "Front-End Developer",
+        (0.533, 1.533): "Back-End Developer",
+        (1.533, 2.56): "Android Developer",
+        (2.56, 3.57): "iOS Developer",
+        (3.57, 4.61): "IoT Developer",
+        (4.61, 5.63): "DepOps Engineer",
+        (5.63, 6.69): "Business Analyst",
+        (6.69, 7.76): "UI/UX Designer",
+        (7.76, 8.85): "Tester",
+        (8.85, 10): "AI Engineer",
+        (10, 11.13): "AI Researcher",
+        (11.13, 12.25): "Data Analysis",
+        (12.25, 13.30): "Database Administrator",
+        (13.30, 14.30): "Data Engineer",
+        (14.30, 15.30): "Data Scientist",
+        (15.30, 16.40): "Information security analyst",
+        (16.40, 17.45): "Network Security Specialist",
+        (17.45, 18.45): "IT Security Engineer",
+        (18.45, 19.45): "Game Developer",
+        (19.45, float("inf")): "IT - Helpdesk",
+    }
+
+    for (low, high), job in jobs.items():
+        if low <= value < high:
+            print(f"Công việc phù hợp với bạn là: {job}")
+            break
     else:
         print("Không tìm thấy việc phù hợp")
 except Exception as e:

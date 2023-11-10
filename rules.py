@@ -166,10 +166,12 @@ class RuleOfKHDL:
     rule_ds = control.Rule(
         field_specialized["Khoa học dữ liệu"]
         & field_math["Yes"]
+        & (field_cloud["Yes"] | field_cloud["No"])
         & field_sql["Yes"]
         & field_oi["No"]
+        & (field_operate["Yes"] | field_operate["No"])
         & field_code_knowledge["Yes"]
-        & (field_ide["Jupyter Notebook"] | field_ide["RStudio"])
+        & (field_ide["Jupyter Notebook"] | field_ide["RStudio"] | field_ide["VSCode"])
         & (field_skills["ML"])
         & (field_lang["Python"] | field_lang["Rust"])
         & (
@@ -187,6 +189,7 @@ class RuleOfKHDL:
         field_specialized["Khoa học dữ liệu"]
         & field_cloud["Yes"]
         & field_math["Yes"]
+        & (field_operate["Yes"] | field_operate["No"])
         & field_sql["Yes"]
         & field_oi["No"]
         & (field_code_knowledge["Yes"] | field_code_knowledge["No"])
@@ -212,7 +215,8 @@ class RuleOfKHDL:
         & field_sql["Yes"]
         & (field_oi["Yes"] | field_oi["No"])
         & (field_code_knowledge["No"])
-        & field_skills["Operate"]
+        & field_operate["Yes"]
+        & (field_skills["ML"] | field_skills["UnKnown"])
         & (field_lang["UnKnown"])
         & field_ide["UnKnown"]
         & (
@@ -230,6 +234,7 @@ class RuleOfKHDL:
     rule_da = control.Rule(
         field_specialized["Khoa học dữ liệu"]
         & field_cloud["No"]
+        & (field_operate["Yes"] | field_operate["No"])
         & field_math["Yes"]
         & field_sql["Yes"]
         & field_oi["Yes"]

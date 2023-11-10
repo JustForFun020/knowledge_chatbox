@@ -98,7 +98,6 @@ class ChatBoxQuestion:
                 job_prediction.input["Specialized Field"] = 2
                 job_prediction.input["Network Field"] = 0
                 job_prediction.input["CI/CD Field"] = 0
-                job_prediction.input["Office Information Field"] = 0
                 job_prediction.input["Security Field"] = 0
                 job_prediction.input["OWASP Top 10 Field"] = 0
                 job_prediction.input["Tools Field"] = 8
@@ -671,11 +670,11 @@ class ChatBoxQuestion:
 
             if user_input == 0:
                 user_choice.append("Operate : No")
-                job_prediction.input["Skills Field"] = 7
+                job_prediction.input["Operate Field"] = 7
                 break
             elif user_input == 1:
                 user_choice.append("Operate : Yes")
-                job_prediction.input["Skills Field"] = 6
+                job_prediction.input["Operate Field"] = 6
                 break
             else:
                 print("Vui lòng nhập lại từ 0 - 1:\n")
