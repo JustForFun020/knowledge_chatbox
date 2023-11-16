@@ -79,6 +79,7 @@ class ChatBoxQuestion:
                 job_prediction.input["Math Field"] = 0
                 job_prediction.input["Office Information Field"] = 0
                 job_prediction.input["OWASP Top 10 Field"] = 0
+                job_prediction.input["Operate Field"] = 7
                 break
             elif user_input == 1:
                 user_choice.append("An toàn thông tin")
@@ -113,6 +114,7 @@ class ChatBoxQuestion:
                 job_prediction.input["Tools Field"] = 8
                 job_prediction.input["Office Information Field"] = 0
                 job_prediction.input["OWASP Top 10 Field"] = 0
+                job_prediction.input["Operate Field"] = 7
                 break
             elif user_input == 4:
                 user_choice.append("IT - Phần cứng")
@@ -658,7 +660,7 @@ class ChatBoxQuestion:
             else:
                 print("Vui lòng nhập lại từ 0 - 1:\n")
 
-    # Câu 22: OWASP
+    # Câu 22: Operate
     def twenty_two_question(self):
         print(
             "---> Bạn có hiểu biết về các hệ điều hành như Linux, MacOs, Ubuntu,... không?"

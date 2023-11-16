@@ -276,6 +276,7 @@ class RuleOfATTT:
         & (field_code_knowledge["No"] | field_code_knowledge["Yes"])
         & field_security["Yes"]
         & field_network["No"]
+        & (field_operate["Yes"] | field_operate["No"])
         & field_cloud["No"]
         & (field_oi["Yes"] | field_oi["No"])
         & field_tools["SIEM"]
@@ -290,6 +291,7 @@ class RuleOfATTT:
         & (field_code_knowledge["No"] | field_code_knowledge["Yes"])
         & field_security["No"]
         & field_network["Yes"]
+        & (field_operate["Yes"] | field_operate["No"])
         & field_cloud["No"]
         & (field_oi["Yes"] | field_oi["No"])
         & field_tools["UnKnown"]
@@ -303,6 +305,7 @@ class RuleOfATTT:
         field_specialized["An toàn thông tin"]
         & (field_code_knowledge["No"] | field_code_knowledge["Yes"])
         & field_security["No"]
+        & (field_operate["Yes"])
         & field_network["Yes"]
         & field_cloud["No"]
         & (field_oi["Yes"] | field_oi["No"])

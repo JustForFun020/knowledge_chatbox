@@ -77,6 +77,8 @@ while True:
         system_question.twenty_question()
         # OWASP
         system_question.twenty_one_question()
+        # Operate
+        system_question.twenty_two_question()
         break
     elif "Không biết lập trình" in user_choice and "Khoa học dữ liệu" in user_choice:
         # SQL
@@ -193,12 +195,21 @@ try:
         (18.45, 19.45): "Game Developer",
         (19.45, float("inf")): "IT - Helpdesk",
     }
-
+    job_prediction.compute()
+    value = job_prediction.output["Jobs Field"]
     for (low, high), job in jobs.items():
         if low <= value < high:
+            time.sleep(1)
+            print("Các lựa chọn của bạn là")
+            for i in user_choice:
+                print(f"+++++  {i}")
+            time.sleep(2)
+            print("Hệ thống đang tính toán số liệu, bạn vui lòng chờ trong giây lát...")
+            time.sleep(3)
             print(f"Công việc phù hợp với bạn là: {job}")
             break
     else:
         print("Không tìm thấy việc phù hợp")
 except Exception as e:
+    print(e)
     print("Không tìm thấy việc phù hợp")
